@@ -1,0 +1,174 @@
+//$Path:"";
+$Path:"https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars";
+//$BaseColor1:#FFAE49;
+//$BottomColor:#F79D2C;
+$BaseColor1:#FCD5C2;
+$BottomColor:#FFB28D;
+$TechColor :#8CC98D;
+$BiologyColor:#5A5978;
+$HealthColor:#FFC783;
+$CultuerColor:#C98CA4;
+$EnviromentColor:#8CB0C9;
+//$EconomicColor:#f03015;
+$EconomicColor:#F3694C;
+$baseDimensions:135px;
+$MobileDimensions:115px;
+
+
+@mixin ParentIcons($Path, $icon, $color) {
+  background-color: $color; 
+  background-image: url($Path+"/assets/images/"+$icon);
+}
+
+@mixin BaseTransition(){
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+}
+
+@mixin BaseButton(){
+    background-color: rgba(0,0,0,.2);
+    border: none;
+    border-radius: 100px;
+    color: white;
+    text-transform: initial;
+    font-weight: 100;
+    background-repeat: no-repeat;
+}
+/************ 
+** Application Variables
+*************/
+
+.InteractiveList.Child_null{ background-color: $BaseColor1;}
+.InteractiveList.Child_0{ background-color: $TechColor;}
+.InteractiveList.Child_1{ background-color: $BiologyColor;}
+.InteractiveList.Child_2{ background-color: $EconomicColor;}
+.InteractiveList.Child_3{ background-color: $EnviromentColor;}
+.InteractiveList.Child_4{ background-color: $CultuerColor;}
+.InteractiveList.Child_5{ background-color: $HealthColor;}
+
+
+.InteractiveList{    
+    padding: 80px 0 0;
+    min-height: 100vh;
+    @include BaseTransition();
+
+
+        // Structure
+        @import "./Top";
+        @import "./Bottom";
+      
+        // Import Application Elements
+        @import "./Buttons";
+
+        
+        // Media Queries
+        @media only screen  and  (min-width : 1200px) {
+
+        }     
+        @media only screen  and (min-width : 990px) and (max-width : 1200px) {
+            .Top{ padding: 0;}
+        } 
+        @media only screen  and (min-width : 768px) and (max-width : 990px) { 
+            .Top{
+                padding: 0;
+            }
+        }     
+        
+    
+        @media only screen and (max-width : 768px) { 
+           
+            .Top{ padding: 3% 0 7% ; }
+            button.Back{ margin:20px 0 ; }
+        }
+ 
+        @media only screen and (min-width : 576px) and (max-width : 768px) {  
+            padding: 100px 0 0 0;
+        }
+        @media only screen and (max-width : 576px) {  
+            padding: 80px 0 0 0;
+        }
+        @media only screen and (min-width : 480px) and (max-width : 576px) {  
+        }
+        
+        @media only screen and (min-width : 320px) and (max-width : 480px) { 
+          
+        }
+}
+
+
+#Home{
+
+    .ResultsContainer{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+
+        .ListContainer{
+            flex-basis: 100%;
+            @media only screen  and  (min-width : 1200px) {
+                flex-basis: 600px;
+            }     
+            @media only screen  and (min-width : 1024px) and (max-width : 1200px) {
+                flex-basis: 510px;
+            } 
+            @media only screen  and (min-width : 990px) and (max-width : 1024px) {
+                flex-basis: 480px;
+            } 
+            @media only screen and (max-width : 576px) { 
+                    #ParentList{
+                            height:50vh; 
+                    }
+            }
+                    @media only screen and (max-height : 600px) { 
+                        #ParentList{
+                            height:80vh !important;
+                    }
+            }
+        }       
+    }
+}
+
+#Child{
+   
+    .ApplicationCopy{
+            h2{
+                font-size: 2.625rem;
+                margin-bottom: 1rem;
+            }
+            p{
+                font-size: 2.25rem;
+                line-height: 1.1em;
+                color:white;
+            }
+    }
+        .ResultsContainer{
+                margin-top: 80px;
+                padding: 0 2% 0 0 ;
+        }
+        @media only screen and (max-width : 576px) {
+            .ResultsContainer{
+                margin-top: 20px;
+        }
+        .ListContainer{
+            padding: 0%;
+        }
+    }
+}
+
+
+@media only screen  and  (min-width : 1200px) {
+    #Home{
+      .SelectedContainer{
+          padding:  0 10%;   
+          min-height: 50vh;
+      }
+    }      
+  }
+
+// Import IE Specific Styles
+@import "./IE";

@@ -1,0 +1,53 @@
+#Sponsor{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content:space-between;
+    align-items: stretch;
+    align-content: flex-start;
+    padding: 10px 3%;
+
+    a{
+        color:$SecondaryColor; 
+        text-decoration: none;
+        line-height: 3.5em;
+        font-weight: 100;
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+
+    span{
+        line-height: 3.5em;
+        float: right;
+        color:$SecondaryColor; 
+    }
+    img{
+        width: 130px;
+        margin: 18px 10px 0 10px;
+        float:right;
+        display: inline-block;
+    }
+
+    @media only screen and (max-width : 568px) { 
+        flex-wrap: wrap;
+        padding: 5px 3%;
+        div{
+            flex-basis: 100%;
+        }
+        .text-right{
+                img{
+                    float: unset;
+                    float: none;
+                }
+                span{
+                    float: left;
+                }
+        }
+
+        .text-left{
+                display: none;
+        }
+    }  
+}

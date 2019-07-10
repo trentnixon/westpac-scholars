@@ -1,0 +1,76 @@
+.ResultsContainer{
+    flex-basis: 50%;
+    padding: 0 3%;
+
+    .ListContainer{
+ 
+        clear: both;
+    
+        @import "./ParentListIcon";
+        @import "./SelectedList";
+    
+    }
+
+    @media only screen  and  (max-width : 1200px) {
+      
+    } 
+    @media only screen  and  (min-width : 1200px) {
+   
+    }     
+    @media only screen  and (min-width : 1024px) and (max-width : 1200px) {
+
+    } 
+    @media only screen  and (min-width : 990px) and (max-width : 1024px) {
+
+    } 
+    @media only screen  and (min-width : 768px) and (max-width : 990px) { 
+        padding: 0;
+    }     
+
+    @media only screen  and (max-width : 785px){ 
+        button.Back{
+            display: none;
+        }
+    }  
+    @media only screen and (max-width : 576px) { 
+        flex-basis: 100%; 
+   
+        .ListContainer{
+            padding: 0 15%;
+            #ParentList{
+                height: 50vh;
+            }
+        } 
+    }
+    
+    @media only screen and (min-width : 576px) and (max-width : 785px) {  
+        flex-basis: 100%;
+        
+       
+    } 
+    @media only screen and (min-width : 576px) and (max-width : 768px) {  
+    }
+    @media only screen and (min-width : 400px) and (max-width : 480px) {  
+
+       
+        .ListContainer{
+            padding: 0 10%;
+            #ParentList{
+                height: 50vh;
+            }
+        } 
+    }
+
+    @media only screen and (min-width : 320px) and (max-width : 400px) {  
+
+        .ListContainer{
+            padding: 0 0%;
+            #ParentList{
+                height: 50vh;
+            }
+        } 
+    }
+
+}
+
+

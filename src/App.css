@@ -1,0 +1,1313 @@
+/*-
+
+    Styling Structure!
+
+    Global Files
+        ** _reset
+        ** _variables
+        ** _reset_bootstraps // For Custom Classes
+
+
+    Project Files/ Page Layouts
+        ** Pages/ _Main
+
+        Project DOM
+            ** dom/_header.scss
+         
+            ** dom/_BottomNavBar.scss
+
+           Project (Card) Elements
+            Outer frame
+            ** /components/Cards/_Card_Frame.scss
+            Inner Frame
+            ** /components/Cards/_Card_Inner.scss
+
+                Inside Inner lies the card Elements
+                Card Type
+                ** /element/_Card_Typograhy.scss
+                Card Header
+                ** /element/_Card_Banner.scss
+                Card Content
+                ** /element/_Card_Content.scss
+                Card Bottom Bar
+                ** /element/_Card_BottomBar.scss
+
+                Side Specific
+                ** /_Card_Front.scss
+                ** /_Card_Back.scss
+
+
+            Flip Action
+            ** /components/Cards/_Card_Flip.scss
+            Bottom Bar
+            ** components/Cards/_Card_Bottom_Bar.scss
+            Media Components
+            ** /components/Cards/_Card_Media.scss
+
+ 
+    Global Elements
+        Buttons
+        ** components/Btns/_btns.scss
+
+-*/
+/*- Resets -*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul, li {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+button {
+  background-color: transparent;
+  outline: none;
+  border: 0;
+  cursor: pointer; }
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: none; }
+
+/*- SCCS Properties -*/
+@font-face {
+  font-display: swap;
+  font-family: "GH Guardian Headline";
+  font-weight: bold;
+  src: url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/fonts/GHGuardianHeadline-Bold.woff2") format("woff2"), url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/fonts/GHGuardianHeadline-Bold.woff") format("woff"); }
+
+@font-face {
+  font-family: "Guardian Headline Regular";
+  src: url("https://interactive.guim.co.uk/fonts/garnett/GHGuardianHeadline-Regular.woff2") format("woff2"), url("https://interactive.guim.co.uk/fonts/garnett/GHGuardianHeadline-Regular.woff") format("woff"), url("https://interactive.guim.co.uk/fonts/garnett/GHGuardianHeadline-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Guardian Headline Bold";
+  src: url("https://interactive.guim.co.uk/fonts/garnett/GHGuardianHeadline-Bold.woff2") format("woff2"), url("https://interactive.guim.co.uk/fonts/garnett/GHGuardianHeadline-Bold.woff") format("woff"), url("https://interactive.guim.co.uk/fonts/garnett/GHGuardianHeadline-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal; }
+
+@font-face {
+  font-display: swap;
+  font-family: "TS3 Text Sans";
+  src: url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/fonts/TS3TextSans.woff2") format("woff2"), url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/fonts/TS3TextSans.woff") format("woff"); }
+
+@font-face {
+  font-display: swap;
+  font-family: "TS3 Text Sans";
+  font-weight: bold;
+  src: url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/fonts/TS3TextSans-Bold.woff2") format("woff2"), url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/fonts/TS3TextSans-Bold.woff") format("woff"); }
+
+/*- Typograpy  -*/
+html body {
+  font-family: "TS3 Text Sans";
+  background-color: #FCD5C2; }
+  html body .nopadding {
+    padding: 0; }
+  html body .nomargin {
+    margin: 0; }
+
+/*- Build up Dom Elements -*/
+#LoadingScreen {
+  height: 100vh;
+  width: 100vh;
+  background-color: #FCD5C2; }
+  #LoadingScreen .lds-facebook {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+    width: 25%;
+    margin: 100px 50%; }
+  #LoadingScreen .lds-facebook div {
+    display: inline-block;
+    position: absolute;
+    left: 6px;
+    width: 13px;
+    background: #69D1CA;
+    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite; }
+  #LoadingScreen .lds-facebook div:nth-child(1) {
+    left: 6px;
+    animation-delay: -0.24s; }
+  #LoadingScreen .lds-facebook div:nth-child(2) {
+    left: 26px;
+    animation-delay: -0.12s; }
+  #LoadingScreen .lds-facebook div:nth-child(3) {
+    left: 45px;
+    animation-delay: 0; }
+
+@keyframes lds-facebook {
+  0% {
+    top: 6px;
+    height: 51px; }
+  50%, 100% {
+    top: 19px;
+    height: 26px; } }
+
+#Glabs {
+  background-color: #FCD5C2;
+  margin: 0%;
+  padding: 0%;
+  /* Smartphones (portrait and landscape) ----------- */
+  /* Large Phones ----------- */
+  /* Medium Phones ----------- */
+  /* Small Phones ----------- */
+  /* Smartphones (portrait) ----------- */
+  /* Smartphones (portrait and landscape) ----------- */
+  /* Large Phones ----------- */
+  /* Medium Phones ----------- */
+  /* Small Phones ----------- */
+  /* Smartphones (portrait) ----------- */
+  /*
+*       TABLET LARGE
+*
+*/
+  /* iPads Pro (landscape) ----------- */
+  /* iPads (portrait) ----------- */
+  /*
+*       TABLET NORMAL
+*
+*/
+  /* iPads (landscape) ----------- */
+  /* iPads (portrait) ----------- */
+  /*
+*       TABLET LARGE
+*
+*/
+  /* iPads Pro (landscape) ----------- */
+  /* iPads (portrait) ----------- */
+  /*
+*       TABLET NORMAL
+*
+*/
+  /* iPads (landscape) ----------- */
+  /* iPads (portrait) ----------- */
+  /*
+*       TABLET LARGE
+*
+*/
+  /* iPads Pro (landscape) ----------- */
+  /* iPads (portrait) ----------- */
+  /*
+*       TABLET NORMAL
+*
+*/
+  /* iPads (landscape) ----------- */
+  /* iPads (portrait) ----------- */
+  /* Desktops and laptops ----------- */
+  /* Large screens ----------- */
+  /* Large screens ----------- */
+  /* Large screens ----------- */
+  /************ 
+** Application Variables
+*************/ }
+  #Glabs h1, #Glabs h2, #Glabs h3 {
+    font-family: "Guardian Headline Regular"; }
+  #Glabs p, #Glabs span, #Glabs a {
+    font-family: "TS3 Text Sans"; }
+  #Glabs #Header {
+    background-color: transparent;
+    margin: 0%;
+    padding: 0 0 10px 0px;
+    background-position: center center;
+    background-size: 0px;
+    background-repeat: no-repeat;
+    position: absolute;
+    align-items: start;
+    width: 100vw;
+    z-index: 10;
+    top: 0; }
+    #Glabs #Header .Title {
+      display: none;
+      bottom: -12%;
+      width: auto;
+      padding: 1em;
+      margin: 0;
+      width: 100%;
+      position: absolute; }
+      #Glabs #Header .Title .Title-Fill-Color {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 70%;
+        height: 100%;
+        background-color: #21333A;
+        z-index: 0; }
+      #Glabs #Header .Title .Title-Container {
+        z-index: 10;
+        position: relative;
+        padding: 0; }
+        #Glabs #Header .Title .Title-Container h1 {
+          font-size: 3em;
+          font-weight: 100;
+          line-height: 1.2em;
+          margin: 0 0 0px;
+          color: #FCD5C2;
+          padding: 3px 14px;
+          font-family: "Guardian Headline Bold";
+          letter-spacing: 1px; }
+        #Glabs #Header .Title .Title-Container h1:nth-child(1) {
+          color: #73D1CA; }
+        #Glabs #Header .Title .Title-Container h2 {
+          font-size: 2em;
+          font-weight: 100;
+          line-height: 1.1em;
+          margin: 0 0 10px;
+          color: #21333A; }
+        #Glabs #Header .Title .Title-Container p {
+          font-size: 1.2em;
+          font-weight: 100;
+          line-height: 1.5em;
+          margin: 0 20% 10px 0;
+          display: none; }
+    #Glabs #Header #TopBanner {
+      background-color: rgba(255, 255, 255, 0.3);
+      width: 100%;
+      padding: 0 10%; }
+      #Glabs #Header #TopBanner #Sponsor {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: stretch;
+        align-content: flex-start;
+        padding: 10px 3%; }
+        #Glabs #Header #TopBanner #Sponsor a {
+          color: #21333A;
+          text-decoration: none;
+          line-height: 3.5em;
+          font-weight: 100; }
+        #Glabs #Header #TopBanner #Sponsor a:hover {
+          text-decoration: underline; }
+        #Glabs #Header #TopBanner #Sponsor span {
+          line-height: 3.5em;
+          float: right;
+          color: #21333A; }
+        #Glabs #Header #TopBanner #Sponsor img {
+          width: 130px;
+          margin: 18px 10px 0 10px;
+          float: right;
+          display: inline-block; }
+        @media only screen and (max-width: 568px) {
+          #Glabs #Header #TopBanner #Sponsor {
+            flex-wrap: wrap;
+            padding: 5px 3%; }
+            #Glabs #Header #TopBanner #Sponsor div {
+              flex-basis: 100%; }
+            #Glabs #Header #TopBanner #Sponsor .text-right img {
+              float: unset;
+              float: none; }
+            #Glabs #Header #TopBanner #Sponsor .text-right span {
+              float: left; }
+            #Glabs #Header #TopBanner #Sponsor .text-left {
+              display: none; } }
+      @media only screen and (min-width: 990px) and (max-width: 1200px) {
+        #Glabs #Header #TopBanner {
+          padding: 0; } }
+      @media only screen and (max-width: 990px) {
+        #Glabs #Header #TopBanner {
+          padding: 0; } }
+  #Glabs .BodyCopy {
+    display: none;
+    color: #fefdf8;
+    background-color: transparent;
+    margin: 100px 0px;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid #9B9B9B; }
+    #Glabs .BodyCopy h1 {
+      font-size: 3em;
+      font-weight: 100;
+      line-height: 1.2em;
+      margin: 0 0 10px; }
+    #Glabs .BodyCopy h2 {
+      font-size: 3em;
+      font-weight: 100;
+      line-height: 1.2em;
+      margin: 0 0 10px; }
+    #Glabs .BodyCopy h3 {
+      font-size: 2em;
+      font-weight: 100;
+      line-height: 1.1em;
+      margin: 0 0 10px; }
+    #Glabs .BodyCopy p {
+      font-size: 1.2em;
+      font-weight: 100;
+      line-height: 1.5em;
+      margin: 0 0 10px;
+      width: 60%;
+      font-family: "Guardian Headline Regular";
+      letter-spacing: 1px; }
+      #Glabs .BodyCopy p a {
+        color: #69D1CA;
+        font-family: "Guardian Headline Regular"; }
+  #Glabs .BodyCopy.below {
+    border: unset; }
+    #Glabs .BodyCopy.below .container {
+      border-top: 1px solid #9B9B9B;
+      padding-top: 20px; }
+      #Glabs .BodyCopy.below .container p {
+        width: 100%; }
+  @media only screen and (min-width: 480px) and (max-width: 576px) {
+    #Glabs .BodyCopy p {
+      width: 100%;
+      padding: 15px 10px; } }
+  @media only screen and (min-width: 320px) and (max-width: 480px) {
+    #Glabs .BodyCopy p {
+      width: 100%;
+      padding: 15px 10px; } }
+  @media only screen and (max-width: 320px) {
+    #Glabs .BodyCopy p {
+      width: 100%;
+      padding: 15px 10px; } }
+  #Glabs #ShareBar {
+    background-color: #69D1CA;
+    margin-top: 0px;
+    color: #21333A;
+    padding: .5em 2em; }
+    #Glabs #ShareBar h3 {
+      color: #21333A; }
+    #Glabs #ShareBar .ReadMore {
+      font-weight: 100;
+      transition: all .4s ease-in;
+      color: #21333A;
+      line-height: 1.3em;
+      display: inline-block;
+      margin: 8px 0; }
+      #Glabs #ShareBar .ReadMore strong {
+        font-weight: 800; }
+    #Glabs #ShareBar .ReadMore:hover {
+      text-decoration: none; }
+    #Glabs #ShareBar .chevron.right:before {
+      display: none;
+      left: 0;
+      transform: rotate(45deg); }
+    #Glabs #ShareBar .chevron.bottom:before {
+      top: 0;
+      transform: rotate(135deg); }
+    #Glabs #ShareBar .chevron.left:before {
+      left: 0.25em;
+      transform: rotate(-135deg); }
+    #Glabs #ShareBar .chevron::before {
+      border-style: solid;
+      border-width: 0.15em 0.15em 0 0;
+      content: '';
+      display: inline-block;
+      height: 0.45em;
+      left: 0.15em;
+      position: relative;
+      top: 1.1em;
+      transform: rotate(-45deg);
+      vertical-align: top;
+      width: 0.45em; }
+    #Glabs #ShareBar #ShareMe {
+      background-color: #69D1CA;
+      color: #21333A;
+      border-radius: 8px;
+      padding: 5px 10px;
+      border: 2px solid #21333A;
+      display: inline-block; }
+      #Glabs #ShareBar #ShareMe h3 {
+        font-size: 1em;
+        font-weight: 100;
+        display: inline-block;
+        line-height: 2em;
+        margin: 0 10px 0 0;
+        color: #21333A;
+        font-family: "TS3 Text Sans"; }
+      #Glabs #ShareBar #ShareMe ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        float: right; }
+        #Glabs #ShareBar #ShareMe ul li {
+          margin: 0 2px;
+          cursor: pointer; }
+          #Glabs #ShareBar #ShareMe ul li svg {
+            background-color: transparent !important; }
+            #Glabs #ShareBar #ShareMe ul li svg path {
+              fill: #21333A; }
+          #Glabs #ShareBar #ShareMe ul li circle, #Glabs #ShareBar #ShareMe ul li rect {
+            fill: #69D1CA; }
+  #Glabs #BottomBar {
+    background-color: transparent;
+    margin: 0%;
+    padding: 0px 0% 30px;
+    width: 100%;
+    z-index: 99;
+    color: white;
+    line-height: 1.4em;
+    font-size: 1.25rem; }
+    #Glabs #BottomBar .Inner {
+      border-top: 1px solid;
+      margin: 0 10%;
+      padding: 40px 0; }
+      #Glabs #BottomBar .Inner p {
+        padding: 0 3%;
+        color: #121212; }
+        #Glabs #BottomBar .Inner p a {
+          font-weight: bold;
+          color: #121212; }
+    @media only screen and (min-width: 990px) and (max-width: 1200px) {
+      #Glabs #BottomBar .Inner {
+        margin: 0 10%; } }
+    @media only screen and (min-width: 768px) and (max-width: 990px) {
+      #Glabs #BottomBar .Inner {
+        margin: 0 10%; } }
+    @media only screen and (max-width: 768px) {
+      #Glabs #BottomBar .Inner {
+        margin: 3% 3% 7%; } }
+  @media only screen and (min-width: 576px) and (max-width: 768px) {
+    #Glabs #ShareBar {
+      margin-top: 0px; }
+      #Glabs #ShareBar .col-sm-12 {
+        text-align: center !important; }
+      #Glabs #ShareBar .ReadMore {
+        top: -15px;
+        position: relative; }
+      #Glabs #ShareBar #ShareMe {
+        position: relative;
+        top: -30px;
+        border: 1px solid #21333A; } }
+  @media only screen and (min-width: 480px) and (max-width: 576px) {
+    #Glabs #ShareBar {
+      margin-top: 0px; }
+      #Glabs #ShareBar .col-sm-12 {
+        text-align: center !important; }
+      #Glabs #ShareBar .ReadMore {
+        line-height: 1.5em;
+        top: -15px;
+        position: relative; }
+        #Glabs #ShareBar .ReadMore strong {
+          display: inline-block; }
+      #Glabs #ShareBar .chevron::before {
+        top: 0.55em; }
+      #Glabs #ShareBar #ShareMe {
+        position: relative;
+        top: -30px;
+        border: 1px solid #21333A; } }
+  @media only screen and (min-width: 320px) and (max-width: 480px) {
+    #Glabs #ShareBar {
+      margin-top: 0px; }
+      #Glabs #ShareBar .col-sm-12 {
+        text-align: center !important; }
+      #Glabs #ShareBar .ReadMore {
+        line-height: 1.5em;
+        top: -15px;
+        position: relative; }
+        #Glabs #ShareBar .ReadMore strong {
+          display: inline-block; }
+      #Glabs #ShareBar .chevron {
+        display: none; }
+      #Glabs #ShareBar #ShareMe {
+        position: relative;
+        top: -30px;
+        border: 1px solid #21333A; } }
+  @media only screen and (max-width: 320px) {
+    #Glabs #ShareBar {
+      margin-top: 0px; }
+      #Glabs #ShareBar .col-sm-12 {
+        text-align: center !important;
+        padding: 0; }
+      #Glabs #ShareBar .ReadMore {
+        line-height: 1.5em;
+        top: -15px;
+        position: relative; }
+        #Glabs #ShareBar .ReadMore strong {
+          display: inline-block; }
+      #Glabs #ShareBar .chevron {
+        display: none; }
+      #Glabs #ShareBar #ShareMe {
+        position: relative;
+        top: -30px;
+        border: 1px solid #21333A; } }
+  @media only screen and (min-width: 990px) and (max-width: 1024px) {
+    #Glabs {
+      /* Styles */ } }
+  #Glabs .InteractiveList.Child_null {
+    background-color: #FCD5C2; }
+  #Glabs .InteractiveList.Child_0 {
+    background-color: #8CC98D; }
+  #Glabs .InteractiveList.Child_1 {
+    background-color: #5A5978; }
+  #Glabs .InteractiveList.Child_2 {
+    background-color: #F3694C; }
+  #Glabs .InteractiveList.Child_3 {
+    background-color: #8CB0C9; }
+  #Glabs .InteractiveList.Child_4 {
+    background-color: #C98CA4; }
+  #Glabs .InteractiveList.Child_5 {
+    background-color: #FFC783; }
+  #Glabs .InteractiveList {
+    padding: 80px 0 0;
+    min-height: 100vh;
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear; }
+    #Glabs .InteractiveList .Top {
+      padding: 0 10%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      align-content: space-evenly;
+      min-height: 50vh; }
+      #Glabs .InteractiveList .Top .ApplicationCopy {
+        flex-grow: 1;
+        flex-basis: 48%;
+        padding: 3% 3% 0; }
+        #Glabs .InteractiveList .Top .ApplicationCopy h1 {
+          font-size: 4.5rem;
+          line-height: 1.3em;
+          font-family: 'GH Guardian Headline';
+          font-weight: bold;
+          line-height: 1em;
+          color: #121212; }
+        #Glabs .InteractiveList .Top .ApplicationCopy h2 {
+          font-family: 'GH Guardian Headline';
+          font-size: 1.875rem;
+          line-height: 1.1em;
+          margin-top: .5em;
+          margin-bottom: 1em;
+          color: white;
+          font-weight: 800;
+          letter-spacing: 1px; }
+        #Glabs .InteractiveList .Top .ApplicationCopy p {
+          font-size: 1.6em;
+          line-height: 1.3em;
+          margin-bottom: 7px;
+          color: white;
+          font-weight: 100;
+          font-family: 'Guardian Headline Regular';
+          color: #121212; }
+        #Glabs .InteractiveList .Top .ApplicationCopy button.Back {
+          display: none; }
+        @media only screen and (max-width: 785px) {
+          #Glabs .InteractiveList .Top .ApplicationCopy button.Back {
+            margin: 0;
+            display: block; } }
+        @media only screen and (min-width: 576px) and (max-width: 768px) {
+          #Glabs .InteractiveList .Top .ApplicationCopy {
+            flex-basis: 100%; }
+            #Glabs .InteractiveList .Top .ApplicationCopy h1 {
+              font-size: 4em;
+              line-height: 1em; }
+            #Glabs .InteractiveList .Top .ApplicationCopy h2 {
+              font-size: 2em; }
+            #Glabs .InteractiveList .Top .ApplicationCopy p {
+              font-size: 1.2em; } }
+        @media only screen and (max-width: 576px) {
+          #Glabs .InteractiveList .Top .ApplicationCopy {
+            flex-basis: 100%; }
+            #Glabs .InteractiveList .Top .ApplicationCopy h1 {
+              font-size: 3.5em;
+              line-height: 1em; }
+            #Glabs .InteractiveList .Top .ApplicationCopy h2 {
+              font-size: 1.7em; }
+            #Glabs .InteractiveList .Top .ApplicationCopy p {
+              font-size: 1.2em; } }
+      #Glabs .InteractiveList .Top .ResultsContainer {
+        flex-basis: 50%;
+        padding: 0 3%; }
+        #Glabs .InteractiveList .Top .ResultsContainer .ListContainer {
+          clear: both;
+          /* ----------------------------------------------
+ * Generated by Animista on 2019-7-9 10:26:41
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+          /**
+ * ----------------------------------------
+ * animation pulsate-fwd
+ * ----------------------------------------
+ */ }
+          #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: baseline;
+            align-content: center;
+            margin: 5% 0;
+            background-image: url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/assets/images/LightBulbInner.svg");
+            background-position: center center;
+            background-size: 75%;
+            background-repeat: no-repeat; }
+            #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList > div:nth-child(1) {
+              flex: 0 1 100%;
+              margin: 0; }
+            #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList > div:nth-child(9) {
+              margin: -40px 0 0 0; }
+            #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList > div:nth-child(2), #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList > div:nth-child(3) {
+              flex: 0 1 50%;
+              margin: -40px 0 0px 0; }
+            #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList > div:nth-child(4), #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList > div:nth-child(5) {
+              flex: 0 1 50%;
+              margin: 20px 0; }
+            #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList > div:nth-child(6) {
+              margin: -40px 0 0 0; }
+            #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList > div {
+              flex: 1 0 50%; }
+            #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList .animated .CenterThis {
+              display: flex;
+              justify-content: center;
+              flex-direction: row;
+              text-align: center; }
+            #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList .animated .ParentListItem {
+              height: 120px;
+              width: 120px;
+              border-radius: 135px;
+              line-height: 135px;
+              text-align: center;
+              position: relative;
+              background-size: cover;
+              -webkit-animation: pulsate-fwd 2.5s ease-in-out infinite both;
+              animation: pulsate-fwd 2.5s ease-in-out infinite both; }
+              #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList .animated .ParentListItem .ParentListIcon {
+                width: 100%;
+                height: 100%;
+                line-height: 1em;
+                border-radius: 135px;
+                background-position: center 15px;
+                background-repeat: no-repeat;
+                background-size: 50px;
+                color: white; }
+                #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList .animated .ParentListItem .ParentListIcon .ParentListTitle {
+                  font-size: .8em;
+                  color: white;
+                  margin: 55px  5px 0; }
+              #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList .animated .ParentListItem .Tech {
+                background-color: #8CC98D;
+                background-image: url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/assets/images/cog.svg"); }
+              #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList .animated .ParentListItem .Biology {
+                background-color: #5A5978;
+                background-image: url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/assets/images/Heart.svg"); }
+              #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList .animated .ParentListItem .Economics {
+                background-color: #F3694C;
+                background-image: url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/assets/images/Dollar.svg"); }
+              #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList .animated .ParentListItem .Environment {
+                background-color: #8CB0C9;
+                background-image: url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/assets/images/Leaf.svg"); }
+              #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList .animated .ParentListItem .Culture {
+                background-color: #C98CA4;
+                background-image: url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/assets/images/HandShake.svg"); }
+              #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList .animated .ParentListItem .Health {
+                background-color: #FFC783;
+                background-image: url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/assets/images/molecule.svg"); }
+            @media only screen and (min-width: 990px) and (max-width: 1024px) {
+              #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList .animated .ParentListItem {
+                height: 115px;
+                width: 115px; }
+                #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList .animated .ParentListItem .ParentListIcon .ParentListTitle {
+                  font-size: .8em; } }
+            @media only screen and (min-width: 786px) and (max-width: 990px) {
+              #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList {
+                height: 40vh;
+                background-size: 65%; }
+                #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList .animated .ParentListItem {
+                  height: 100px;
+                  width: 100px; }
+                  #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList .animated .ParentListItem .ParentListIcon {
+                    background-size: 30px; }
+                    #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList .animated .ParentListItem .ParentListIcon .ParentListTitle {
+                      font-size: .7em;
+                      margin-top: 35px;
+                      line-height: 1.1em; } }
+            @media only screen and (min-width: 576px) and (max-width: 785px) {
+              #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList {
+                background-size: 55%; } }
+            @media only screen and (max-width: 576px) {
+              #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList {
+                background-size: 95%;
+                height: 44vh !important; }
+                #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList .animated .ParentListItem {
+                  height: 100px;
+                  width: 100px; }
+                  #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList .animated .ParentListItem .ParentListIcon {
+                    background-size: 40px; }
+                    #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList .animated .ParentListItem .ParentListIcon .ParentListTitle {
+                      font-size: .7em;
+                      margin-top: 50px;
+                      line-height: 1.1em; }
+                #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList > div:nth-child(2), #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList > div:nth-child(4) {
+                  display: flex;
+                  justify-content: flex-start; }
+                  #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList > div:nth-child(2) div, #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList > div:nth-child(4) div {
+                    align-self: flex-start; }
+                #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList > div:nth-child(3), #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList > div:nth-child(5) {
+                  display: flex;
+                  justify-content: flex-end; }
+                  #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList > div:nth-child(3) div, #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList > div:nth-child(5) div {
+                    align-self: flex-end; } }
+
+@-webkit-keyframes pulsate-fwd {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@keyframes pulsate-fwd {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+          #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #SelectedList {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: center;
+            align-content: center;
+            margin-bottom: 50px; }
+            #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #SelectedList .animated {
+              margin: 7px; }
+              #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #SelectedList .animated .SelectedListItem {
+                height: 135px;
+                width: 135px;
+                border-radius: 135px;
+                line-height: 135px;
+                text-align: center;
+                position: relative;
+                background-size: cover; }
+                #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #SelectedList .animated .SelectedListItem .SelectedListIcon {
+                  width: 100%;
+                  height: 100%;
+                  line-height: 1em;
+                  border-radius: 135px;
+                  position: relative; }
+                  #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #SelectedList .animated .SelectedListItem .SelectedListIcon .SelectedListTitle {
+                    -webkit-transition: all .2s linear;
+                    -moz-transition: all .2s linear;
+                    -o-transition: all .2s linear;
+                    transition: all .2s linear;
+                    font-size: .9em;
+                    color: white;
+                    opacity: 0;
+                    position: absolute;
+                    top: 0%;
+                    left: 0%;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    border-radius: 10px;
+                    padding: 44% 2%;
+                    font-size: .8em;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 135px; }
+                #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #SelectedList .animated .SelectedListItem .SelectedListIcon:hover .SelectedListTitle {
+                  opacity: 1; }
+            @media only screen and (min-width: 768px) and (max-width: 1024px) {
+              #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #SelectedList .animated {
+                margin: 5px; }
+                #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #SelectedList .animated .SelectedListItem {
+                  height: 115px;
+                  width: 115px; } }
+            @media only screen and (max-width: 576px) {
+              #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #SelectedList .animated .SelectedListItem {
+                height: 115px;
+                width: 115px; } }
+        @media only screen and (min-width: 768px) and (max-width: 990px) {
+          #Glabs .InteractiveList .Top .ResultsContainer {
+            padding: 0; } }
+        @media only screen and (max-width: 785px) {
+          #Glabs .InteractiveList .Top .ResultsContainer button.Back {
+            display: none; } }
+        @media only screen and (max-width: 576px) {
+          #Glabs .InteractiveList .Top .ResultsContainer {
+            flex-basis: 100%; }
+            #Glabs .InteractiveList .Top .ResultsContainer .ListContainer {
+              padding: 0 15%; }
+              #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList {
+                height: 50vh; } }
+        @media only screen and (min-width: 576px) and (max-width: 785px) {
+          #Glabs .InteractiveList .Top .ResultsContainer {
+            flex-basis: 100%; } }
+        @media only screen and (min-width: 400px) and (max-width: 480px) {
+          #Glabs .InteractiveList .Top .ResultsContainer .ListContainer {
+            padding: 0 10%; }
+            #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList {
+              height: 50vh; } }
+        @media only screen and (min-width: 320px) and (max-width: 400px) {
+          #Glabs .InteractiveList .Top .ResultsContainer .ListContainer {
+            padding: 0 0%; }
+            #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList {
+              height: 50vh; } }
+    #Glabs .InteractiveList .Bottom .SelectedContainer {
+      background-color: #FFB28D;
+      margin-top: 40px; }
+      #Glabs .InteractiveList .Bottom .SelectedContainer .ApplicationCopy {
+        width: 96%;
+        padding: 5% 0%;
+        margin: 0 3%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: flex-start; }
+        #Glabs .InteractiveList .Bottom .SelectedContainer .ApplicationCopy div {
+          flex-basis: 48%;
+          padding: 0% 2% 0 0; }
+        #Glabs .InteractiveList .Bottom .SelectedContainer .ApplicationCopy h1 {
+          font-size: 3em;
+          line-height: 1.3em; }
+        #Glabs .InteractiveList .Bottom .SelectedContainer .ApplicationCopy h2 {
+          font-size: 3.5em;
+          line-height: 1em;
+          margin-bottom: 1em;
+          color: white;
+          font-weight: 800;
+          letter-spacing: 1px; }
+        #Glabs .InteractiveList .Bottom .SelectedContainer .ApplicationCopy p {
+          font-size: 1.15em;
+          line-height: 1.4em;
+          margin-bottom: 14px;
+          font-family: 'Guardian Headline Regular'; }
+      #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem {
+        padding: 0% 10% 0;
+        margin: 100px 0 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        align-content: center; }
+        #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Left {
+          width: 40%;
+          text-align: left; }
+          #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Left img {
+            flex-grow: 1;
+            height: 60%;
+            width: 60%;
+            margin: -10% 0% 2% 0;
+            background-color: white;
+            border-radius: 100%; }
+          #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Left h1 {
+            font-size: 2.25rem;
+            flex-grow: 1;
+            color: white;
+            margin: 0 0 20px 0;
+            line-height: 1.5em; }
+          #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Left p {
+            flex-grow: 2;
+            font-size: 1.1em;
+            line-height: 1.4em;
+            margin: 0 0 50px 0; }
+        #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Right {
+          width: 60%;
+          padding: 2% 0% 5% 0%; }
+          #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Right p {
+            color: white;
+            font-size: 1.25em;
+            line-height: 1.6em;
+            margin-bottom: 14px;
+            font-family: 'Guardian Headline Regular';
+            font-weight: 100; }
+          #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Right h1 {
+            border-top: 1px solid white;
+            color: white;
+            padding-top: 20px;
+            margin-bottom: 5px;
+            font-weight: 100;
+            font-size: 1.1em;
+            font-family: 'Guardian Headline Regular'; }
+            #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Right h1 strong {
+              font-size: 1.2em;
+              font-weight: bold;
+              font-family: 'Guardian Headline '; }
+          #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Right h2 {
+            border-bottom: 1px solid white;
+            color: white;
+            padding-bottom: 20px;
+            margin-top: 5px;
+            font-weight: 100;
+            font-size: 1.1em;
+            font-family: 'Guardian Headline Regular';
+            margin-bottom: 14px; }
+            #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Right h2 strong {
+              font-weight: bold;
+              font-size: 1.2em;
+              font-family: 'Guardian Headline '; }
+          #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Right .ScholarLinks {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 100px;
+            border: unset;
+            border: none;
+            color: white;
+            padding: 2% 5%;
+            text-transform: capitalize;
+            width: 60%;
+            margin: 1% 0;
+            justify-content: flex-start;
+            align-items: self-start;
+            background-image: url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/assets/images/NextButton.svg");
+            background-position: 95% center;
+            background-repeat: no-repeat;
+            -webkit-transition: all .2s linear;
+            -moz-transition: all .2s linear;
+            -o-transition: all .2s linear;
+            transition: all .2s linear; }
+            #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Right .ScholarLinks span {
+              font-size: 1rem; }
+          #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Right .ScholarLinks:hover {
+            background-position: 97% center; }
+          #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Right .player-wrapper {
+            position: relative;
+            padding-top: 56.25%;
+            /* Player ratio: 100 / (1280 / 720) */
+            margin: 30px 0; }
+            #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Right .player-wrapper .YTVideoPlayer {
+              position: absolute;
+              top: 0;
+              left: 0; }
+          #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Right .SupportingImage {
+            position: relative;
+            padding-top: 56.25%;
+            /* Player ratio: 100 / (1280 / 720) */
+            margin: 30px 0; }
+            #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Right .SupportingImage img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%; }
+      #Glabs .InteractiveList .Bottom .SelectedContainer #SelectedList {
+        padding: 80px 0 50px 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        align-content: flex-start; }
+        #Glabs .InteractiveList .Bottom .SelectedContainer #SelectedList .animated {
+          margin: 3px; }
+          #Glabs .InteractiveList .Bottom .SelectedContainer #SelectedList .animated li {
+            width: 80px;
+            height: 80px;
+            border-radius: 80px;
+            background-size: contain; }
+            #Glabs .InteractiveList .Bottom .SelectedContainer #SelectedList .animated li button {
+              float: unset;
+              width: 100%;
+              height: 100%; }
+      #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedCategoryList {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: flex-start; }
+        #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedCategoryList li {
+          text-align: left;
+          padding: 0;
+          margin: 0 .5%; }
+          #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedCategoryList li button {
+            padding: 5%;
+            border-radius: 100px;
+            width: 80px;
+            height: 80px;
+            background-size: 50px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            text-indent: -10000px;
+            overflow: hidden; }
+        #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedCategoryList .Tech button {
+          background-color: #8CC98D;
+          background-image: url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/assets/images/cog.svg"); }
+        #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedCategoryList .Biology button {
+          background-color: #5A5978;
+          background-image: url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/assets/images/Heart.svg"); }
+        #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedCategoryList .Economics button {
+          background-color: #F3694C;
+          background-image: url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/assets/images/Dollar.svg"); }
+        #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedCategoryList .Environment button {
+          background-color: #8CB0C9;
+          background-image: url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/assets/images/Leaf.svg"); }
+        #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedCategoryList .Culture button {
+          background-color: #C98CA4;
+          background-image: url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/assets/images/HandShake.svg"); }
+        #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedCategoryList .Health button {
+          background-color: #FFC783;
+          background-image: url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/assets/images/molecule.svg"); }
+      @media only screen and (min-width: 1200px) {
+        #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Right {
+          padding: 2% 0% 5%; } }
+      @media only screen and (min-width: 990px) and (max-width: 1024px) {
+        #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem {
+          padding: 0% 10% 0; } }
+      @media only screen and (min-width: 768px) and (max-width: 990px) {
+        #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem {
+          padding: 0% 10% 0; }
+          #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Right {
+            padding: 2% 0% 5% 0%; } }
+      @media only screen and (min-width: 576px) and (max-width: 768px) {
+        #Glabs .InteractiveList .Bottom .SelectedContainer .ApplicationCopy div {
+          flex-basis: 100%; }
+        #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem {
+          padding: 0% 3%;
+          flex-wrap: wrap;
+          flex-direction: column; }
+          #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Left {
+            width: 100%; }
+            #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Left img {
+              width: 40%;
+              margin: -10% 0% 2% 0; }
+          #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Right {
+            width: 100%;
+            padding: 2% 0% 5% 0%; } }
+      @media only screen and (max-width: 576px) {
+        #Glabs .InteractiveList .Bottom .SelectedContainer .ApplicationCopy div {
+          flex-basis: 100%; }
+        #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem {
+          padding: 0% 3%;
+          flex-direction: column; }
+          #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Left {
+            width: 100%; }
+            #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Left img {
+              width: 40%;
+              margin: -10% 0% 2% 0; }
+            #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Left h1 {
+              font-size: 2.5em; }
+            #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Left .SelectedCategoryList li button {
+              width: 70px;
+              height: 70px;
+              background-size: 40px; }
+          #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Right {
+            width: 100%;
+            margin: 10px 0 40px;
+            padding: 0; }
+            #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Right p {
+              font-size: 1em;
+              margin: 10px 0 40px; }
+            #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Right .ScholarLinks {
+              width: 100%;
+              padding: 5%; } }
+      @media only screen and (min-width: 480px) and (max-width: 576px) {
+        #Glabs .InteractiveList .Bottom .SelectedContainer .SelectedItem .Left img {
+          width: 40%;
+          margin: -10% 0% 2% 0; } }
+    #Glabs .InteractiveList .Bottom .BottomCTA {
+      padding-top: 0px; }
+      #Glabs .InteractiveList .Bottom .BottomCTA .inner {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: baseline;
+        align-content: center;
+        padding: 1%;
+        margin: 0 10%; }
+    @media only screen and (min-width: 990px) and (max-width: 1200px) {
+      #Glabs .InteractiveList .Bottom .BottomCTA .inner {
+        margin: 3% 10% 0%; } }
+    @media only screen and (min-width: 768px) and (max-width: 990px) {
+      #Glabs .InteractiveList .Bottom .BottomCTA .inner {
+        margin: 3% 10% 0%;
+        padding: 2% 0; } }
+    @media only screen and (max-width: 768px) {
+      #Glabs .InteractiveList .Bottom .BottomCTA .inner {
+        margin: 3% 3% 0%;
+        padding: 2% 0; } }
+    @media only screen and (max-width: 576px) {
+      #Glabs .InteractiveList .Bottom .BottomCTA .inner {
+        margin: 3% 3% 0%;
+        padding: 5% 0; } }
+    .InteractiveList.Child_0 .BottomCTA {
+      background-color: #8CC98D; }
+    .InteractiveList.Child_1 .BottomCTA {
+      background-color: #5A5978; }
+    .InteractiveList.Child_2 .BottomCTA {
+      background-color: #F3694C; }
+    .InteractiveList.Child_3 .BottomCTA {
+      background-color: #8CB0C9; }
+    .InteractiveList.Child_4 .BottomCTA {
+      background-color: #C98CA4; }
+    .InteractiveList.Child_5 .BottomCTA {
+      background-color: #FFC783; }
+    #Glabs .InteractiveList button {
+      float: right; }
+    #Glabs .InteractiveList button.Back {
+      background-color: rgba(0, 0, 0, 0.2);
+      border: none;
+      border-radius: 100px;
+      color: white;
+      text-transform: initial;
+      font-weight: 100;
+      background-repeat: no-repeat;
+      background-size: 20%;
+      width: 90px;
+      text-align: right;
+      float: right;
+      margin-bottom: 14px;
+      background-image: url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/assets/images/BackIcon.svg");
+      background-position: 15% center;
+      -webkit-transition: all .2s linear;
+      -moz-transition: all .2s linear;
+      -o-transition: all .2s linear;
+      transition: all .2s linear; }
+      #Glabs .InteractiveList button.Back span {
+        align-items: self-end;
+        justify-content: flex-end;
+        margin-top: 2px;
+        font-size: 1rem; }
+    #Glabs .InteractiveList button.Back:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+      background-position: 8% center; }
+    #Glabs .InteractiveList button.Home {
+      background-color: rgba(0, 0, 0, 0.2);
+      border: none;
+      border-radius: 100px;
+      color: white;
+      text-transform: initial;
+      font-weight: 100;
+      background-repeat: no-repeat;
+      -webkit-transition: all .2s linear;
+      -moz-transition: all .2s linear;
+      -o-transition: all .2s linear;
+      transition: all .2s linear;
+      background-image: url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/assets/images/BackIcon.svg");
+      background-position: 12px center;
+      min-width: 110px;
+      min-height: 40px;
+      background-size: 15px; }
+      #Glabs .InteractiveList button.Home span {
+        font-size: 1rem; }
+    #Glabs .InteractiveList button.Home:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+      background-position: 8px center; }
+    #Glabs .InteractiveList Button.BackToTop {
+      background-color: rgba(0, 0, 0, 0.2);
+      border: none;
+      border-radius: 100px;
+      color: white;
+      text-transform: initial;
+      font-weight: 100;
+      background-repeat: no-repeat;
+      -webkit-transition: all .2s linear;
+      -moz-transition: all .2s linear;
+      -o-transition: all .2s linear;
+      transition: all .2s linear;
+      background-image: url("https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/assets/images/ArrowUp.svg");
+      background-position: center;
+      min-width: 40px;
+      min-height: 40px;
+      background-size: 15px; }
+    #Glabs .InteractiveList Button.BackToTop:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+      background-position: center 8px; }
+    @media only screen and (min-width: 990px) and (max-width: 1200px) {
+      #Glabs .InteractiveList .Top {
+        padding: 0; } }
+    @media only screen and (min-width: 768px) and (max-width: 990px) {
+      #Glabs .InteractiveList .Top {
+        padding: 0; } }
+    @media only screen and (max-width: 768px) {
+      #Glabs .InteractiveList .Top {
+        padding: 3% 0 7%; }
+      #Glabs .InteractiveList button.Back {
+        margin: 20px 0; } }
+    @media only screen and (min-width: 576px) and (max-width: 768px) {
+      #Glabs .InteractiveList {
+        padding: 100px 0 0 0; } }
+    @media only screen and (max-width: 576px) {
+      #Glabs .InteractiveList {
+        padding: 80px 0 0 0; } }
+  #Glabs #Home .ResultsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start; }
+    #Glabs #Home .ResultsContainer .ListContainer {
+      flex-basis: 100%; }
+      @media only screen and (min-width: 1200px) {
+        #Glabs #Home .ResultsContainer .ListContainer {
+          flex-basis: 600px; } }
+      @media only screen and (min-width: 1024px) and (max-width: 1200px) {
+        #Glabs #Home .ResultsContainer .ListContainer {
+          flex-basis: 510px; } }
+      @media only screen and (min-width: 990px) and (max-width: 1024px) {
+        #Glabs #Home .ResultsContainer .ListContainer {
+          flex-basis: 480px; } }
+      @media only screen and (max-width: 576px) {
+        #Glabs #Home .ResultsContainer .ListContainer #ParentList {
+          height: 50vh; } }
+      @media only screen and (max-height: 600px) {
+        #Glabs #Home .ResultsContainer .ListContainer #ParentList {
+          height: 80vh !important; } }
+  #Glabs #Child .ApplicationCopy h2 {
+    font-size: 2.625rem;
+    margin-bottom: 1rem; }
+  #Glabs #Child .ApplicationCopy p {
+    font-size: 2.25rem;
+    line-height: 1.1em;
+    color: white; }
+  #Glabs #Child .ResultsContainer {
+    margin-top: 80px;
+    padding: 0 2% 0 0; }
+  @media only screen and (max-width: 576px) {
+    #Glabs #Child .ResultsContainer {
+      margin-top: 20px; }
+    #Glabs #Child .ListContainer {
+      padding: 0%; } }
+  @media only screen and (min-width: 1200px) {
+    #Glabs #Home .SelectedContainer {
+      padding: 0 10%;
+      min-height: 50vh; } }
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    #Glabs {
+      /* IE10+ CSS styles go here */ }
+      #Glabs #Home {
+        padding: 120px 0 0; }
+      #Glabs #Glabs .InteractiveList .Top .ApplicationCopy {
+        width: 49%;
+        padding: 0; }
+      #Glabs #Glabs .InteractiveList .Top .ResultsContainer {
+        width: 49%;
+        padding: 0; }
+      #Glabs #Glabs .InteractiveList .Top .ResultsContainer .ListContainer #ParentList {
+        background-size: auto 100%; } }

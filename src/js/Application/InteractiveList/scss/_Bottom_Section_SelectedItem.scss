@@ -1,0 +1,360 @@
+
+.SelectedContainer{
+  
+    background-color: $BottomColor;
+    margin-top: 40px;
+
+    .ApplicationCopy{
+        width: 96%;
+                padding: 5% 0%;
+                margin: 0 3%;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                align-items: stretch;
+                align-content: flex-start;
+                div{
+                    flex-basis: 48%;
+                    padding:0% 2% 0 0;
+                }
+
+        h1{
+            font-size: 3em;
+            line-height: 1.3em;
+        }
+        h2{
+            font-size: 3.5em;
+            line-height: 1em;
+            margin-bottom: 1em;
+            color: white;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        p{
+            font-size: 1.15em;
+            line-height: 1.4em;
+            margin-bottom: 14px;
+            font-family: 'Guardian Headline Regular';
+           
+        } 
+       
+    }
+   
+    .Left{
+        p:nth-child(1){
+         //   font-size: 1.3em;
+        }
+    }
+
+    .SelectedItem{
+        padding: 0% 10% 0;
+        margin: 100px 0 0;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        align-content: center;
+        
+    
+        .Left{
+            width: 40%;
+            text-align: left;
+           
+            img{
+                flex-grow: 1;
+                height: 60%;
+                width: 60%;
+                margin: -10% 0% 2% 0 ;
+                background-color: white;
+                border-radius: 100%;
+            
+            }
+    
+            h1{
+            
+                font-size: 2.25rem;
+                flex-grow: 1;
+                color: white; 
+                margin: 0 0 20px 0;
+                line-height: 1.5em;
+            
+            }
+            p{
+                flex-grow: 2;
+                font-size: 1.1em;
+                line-height: 1.4em;
+                margin: 0 0 50px 0;
+                
+            }
+        }
+    
+        .Right{
+            width: 60%;
+            padding: 2% 0% 5% 0%;
+
+            p{
+                color: white;
+                font-size: 1.25em;
+                line-height: 1.6em;
+                margin-bottom: 14px;
+                font-family: 'Guardian Headline Regular';
+                font-weight: 100;
+            }
+            h1{ 
+                    border-top: 1px solid white;
+                    color: white;
+                    padding-top: 20px;
+                    margin-bottom: 5px;
+                    font-weight: 100;
+                    font-size: 1.1em;
+                    font-family: 'Guardian Headline Regular';
+                    strong{
+                        font-size: 1.2em;
+                        font-weight: bold;
+                        font-family: 'Guardian Headline ';
+                    }
+                }
+            h2{
+                border-bottom: 1px solid white;
+                color: white;
+                padding-bottom: 20px;
+                margin-top: 5px;
+                font-weight: 100;
+                font-size: 1.1em;
+                font-family: 'Guardian Headline Regular';
+                margin-bottom: 14px;
+                strong{
+                    font-weight: bold;
+                    font-size: 1.2em;
+                    font-family: 'Guardian Headline ';
+                }
+            }
+            
+            .ScholarLinks{
+                background-color: rgba(0,0,0,.2);
+                border-radius: 100px;
+                border: unset;
+                border: none;
+                color: white;
+                padding: 2% 5%;
+                text-transform: capitalize;
+
+                width: 60%;
+                margin: 1% 0 ;
+                justify-content: flex-start;
+                align-items: self-start;
+                background-image: url($Path + "/assets/images/NextButton.svg");
+                background-position:  95% center;
+                background-repeat: no-repeat;
+                @include BaseTransition();
+                span{
+                    font-size: 1rem;
+                }
+            }
+           
+
+            .ScholarLinks:hover{
+                background-position:  97% center;
+            }
+
+            @import "./VideoPlayer";
+        }
+    }
+
+
+    #SelectedList{
+        padding: 80px 0 50px 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; 
+        align-items: flex-start;
+        align-content: flex-start;
+
+        .animated{
+        
+                margin: 3px;
+                
+               
+            li{
+                width: 80px;
+                height: 80px;
+                border-radius: 80px;
+                background-size: contain;
+    
+                button{
+                    float: unset;
+                    width: 100%;
+                    height: 100%;
+                   
+                }
+
+            }
+        }
+       
+    }
+
+    .SelectedCategoryList{
+         display: flex;
+         flex-direction:row;
+         flex-wrap: wrap;
+         justify-content: flex-start;
+         align-items: flex-start;
+         align-content: flex-start;
+
+            li{
+                
+                text-align: left;
+                padding: 0;
+                margin: 0 .5%;
+
+           
+                button{
+                 
+                    padding: 5%;
+                    border-radius: 100px;
+                    width: 80px;
+                    height: 80px;
+                    background-size: 50px;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    text-indent: -10000px;
+                    overflow: hidden;
+                }
+            
+            }
+            
+            .Tech{   button{       @include ParentIcons($Path,"cog.svg", $TechColor) }}
+            .Biology{   button{    @include ParentIcons($Path,"Heart.svg", $BiologyColor)}}
+            .Economics{   button{  @include ParentIcons($Path,"Dollar.svg", $EconomicColor)}}
+            .Environment{  button{ @include ParentIcons($Path,"Leaf.svg", $EnviromentColor)}}
+            .Culture{    button{   @include ParentIcons($Path,"HandShake.svg", $CultuerColor)}}
+            .Health{    button{    @include ParentIcons($Path,"molecule.svg", $HealthColor)}}
+    }
+
+
+
+
+   
+    @media only screen  and (min-width : 1200px) {
+        .SelectedItem{
+          
+            .Right{
+                padding: 2% 0% 5%;
+            }
+        }
+    }  
+
+    @media only screen  and (min-width : 990px) and (max-width : 1024px) {
+        .SelectedItem{
+            padding: 0% 10% 0;
+          
+        }
+    } 
+    @media only screen  and (min-width : 768px) and (max-width : 990px) { 
+        .SelectedItem{
+            padding: 0% 10% 0;
+            .Right{     
+                padding: 2% 0% 5% 0%;
+            }
+        }
+    }     
+    @media only screen and (min-width : 576px) and (max-width : 768px) {  
+       
+        .ApplicationCopy{
+            div{
+                flex-basis: 100%;
+          
+            }
+        }  
+        .SelectedItem{
+            padding: 0% 3%;
+            flex-wrap: wrap;
+            flex-direction: column;
+            .Left{ 
+                img{
+                    width: 40%;
+                    margin: -10% 0% 2% 0;
+                }
+                width:100%;
+        }
+            .Right{     
+                width:100%;
+                padding: 2% 0% 5% 0%;}
+        }
+    }
+
+
+    @media only screen and (max-width : 576px) { 
+        .ApplicationCopy{
+            div{
+                flex-basis: 100%;
+          
+            }
+        }   
+       
+        .SelectedItem{
+            padding: 0% 3%;
+            flex-direction: column;
+            .Left{ 
+                width:100%;
+                img{
+                    width: 40%;
+                    margin: -10% 0% 2% 0;
+                }
+                h1{
+                    font-size: 2.5em;
+                }
+                .SelectedCategoryList li button{
+                    width: 70px;
+                    height: 70px;
+                    background-size: 40px;
+                }
+            }
+            .Right{ 
+                    width:100%;
+                    margin: 10px 0 40px;
+                    padding: 0;
+                    p{
+                        font-size: 1em;
+                        margin: 10px 0 40px;
+                    }
+                    .ScholarLinks{
+                        width: 100%;
+                        padding:5%;   
+                    }
+            }
+        }
+    }
+
+
+    @media only screen and (min-width : 576px) and (max-width : 768px) {  
+    }
+    @media only screen and (min-width : 480px) and (max-width : 576px) {  
+        .SelectedItem{
+          
+            .Left{ 
+                
+                img{
+                    width: 40%;
+                    margin: -10% 0% 2% 0;
+                }
+        }
+           
+        }
+    }
+    
+    @media only screen and (min-width : 320px) and (max-width : 480px) { 
+    
+    }
+
+    @media only screen and (max-width : 320px) { 
+      
+    }
+
+    
+}
+
+
