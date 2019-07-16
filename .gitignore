@@ -9,6 +9,7 @@
 # production
 /build
 /interactive-atom-template
+/ATOM
 
 # misc
 .DS_Store
@@ -23,3 +24,4 @@ yarn-error.log*
 Westpace100_Infographic.sketch
 Westpac Scholars Interactive Copy For Dev 26062019.docx
 Westpac 100 interactive categories_Final list by catergory_26062019.docx
+ATOM/interactive-atom-template
