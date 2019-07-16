@@ -4,12 +4,11 @@ $Path:"https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars";
 //$BottomColor:#F79D2C;
 $BaseColor1:#FCD5C2;
 $BottomColor:#FFB28D;
-$TechColor :#8CC98D;
+$TechColor :#8CB0C9;
 $BiologyColor:#5A5978;
 $HealthColor:#FFC783;
 $CultuerColor:#C98CA4;
-$EnviromentColor:#8CB0C9;
-//$EconomicColor:#f03015;
+$EnviromentColor:#8CC98D;
 $EconomicColor:#F3694C;
 $baseDimensions:135px;
 $MobileDimensions:115px;
@@ -105,8 +104,8 @@ $MobileDimensions:115px;
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: flex-start;
-    align-items: stretch;
-    align-content: flex-start;
+        align-items: stretch;
+        align-content: flex-start;
 
         .ListContainer{
             flex-basis: 100%;

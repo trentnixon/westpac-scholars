@@ -5,7 +5,7 @@ export default class Body_Copy extends React.Component {
 
   componentWillMount(){ }
 
-  render() {
+  render() { 
 
     Paragrph=null;
  

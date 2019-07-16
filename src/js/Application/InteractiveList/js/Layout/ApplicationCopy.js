@@ -6,7 +6,7 @@ export default  class Default extends Component {
   CreateCopyType(data,i){
           switch(data.Type) { 
               case 'p':
-                 return <p key={i} className={data.Class}>{data.Copy}</p>
+                 return <p key={i} className={data.Class} dangerouslySetInnerHTML={ { __html: data.Copy} }></p> 
                  // eslint-disable-next-line
               break;
               
@@ -26,7 +26,7 @@ export default  class Default extends Component {
               break;
 
               default:
-                  return <p key={i} className={data.Class}>{data.Copy}</p>
+                  return  <p key={i} className={data.Class} dangerouslySetInnerHTML={ { __html: data.Copy} }></p> 
             }
   }
 

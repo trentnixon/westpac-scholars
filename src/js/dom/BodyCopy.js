@@ -9,7 +9,7 @@ export default class DisplayBodyCopy extends React.Component {
           //console.log(data)
                 switch(data.Type) {
                     case 'p':
-                       return <p key={i} className={data.Class}>{data.Copy}</p>
+                       return <p key={i} className={data.Class} dangerouslySetInnerHTML={ { __html: data.Copy} }></p> 
                        // eslint-disable-next-line
                     break;
                     
@@ -29,10 +29,10 @@ export default class DisplayBodyCopy extends React.Component {
                     break;
 
                     default:
-                        return <p key={i} className={data.Class}>{data.Copy}</p>
+                        return <p key={i} className={data.Class} dangerouslySetInnerHTML={ { __html: data.Copy} }></p> 
                   }
-        }
-
+        } 
+ 
 
   render() {
     let BodyCopy = this.props.BodyCopy     

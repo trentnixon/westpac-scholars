@@ -22,7 +22,7 @@ export default  class Default extends Component {
 
             <CopySelector 
               UiState={UiState}
-              Int={this.props.APP.INT}
+              Int={this.props.APP.INT} 
               {... this.props} 
             />
 
