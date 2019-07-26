@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {isMobile} from 'react-device-detect';
 import ButtonBase from '@material-ui/core/ButtonBase';
+import Categories from "./CategoriesAttachedToListItem";
 import {Animated} from "react-animated-css";
 import {ItemSelected} from "../../actions/actions";
 import {GA} from "../../../../../actions/ga";
@@ -66,7 +67,7 @@ export default  class Default extends Component {
     componentWillUpdate(nextProps, nextState) {
         console.log(this.props.INT, nextProps.INT)
         if(this.props.INT !== nextProps.INT){
-            console.log("Create New List")
+            console.log("Create New List") 
             Keys =  this.createList(nextProps)
         }
       }
@@ -74,35 +75,40 @@ export default  class Default extends Component {
         console.log(Keys, this.props);
         
         return(
-            <ul id="SelectedList"> 
+            <ul id="SelectedListNew"> 
                 {
                     Keys.map((id,i)=>{
              
-                        console.log(this.props.List[id]);
+                       console.log(this.props.List[id].Int);
                         
-                      Delay = Delay+150;
-                        return (
-                            <Animated key={i} animationIn="zoomIn" animationOut="fadeOut" animationInDelay={Delay} isVisible={true}>
+                    Delay = Delay+150;
+                    return (
+                        <Animated key={i} animationIn="zoomIn" animationOut="fadeOut" animationInDelay={Delay} isVisible={true}>
                                 <li 
                                     key={i} 
                                     className="SelectedListItem"
-                                    style={{ backgroundImage: `url(https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars${this.props.List[id].HeadShot})`}}  
                                 >
+                                    <div className="Picture" style={{ backgroundImage: `url(https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars${this.props.List[id].HeadShot})`}} >
+
+                                    
                                         <ButtonBase 
                                             focusRipple 
                                             className="SelectedListIcon" 
                                             onClick={()=>{this.handle(id)}}
+                                            disableRipple={true}
                                         >
                                             <span className="SelectedListTitle">
                                                 {this.props.List[id].Name}
                                             </span> 
                                            
                                         </ButtonBase>
-                                        <p>{this.props.List[id].Tagline}</p>
+                                        </div>
+                                        <Categories int={this.props.List[id].Int} {... this.props}/>
+                                        <p className="Tagline">{this.props.List[id].Tagline}</p>
                                 </li>
-                            </Animated>
-                        )
-                    }) 
+                        </Animated>
+                    )
+                }) 
                 }
             </ul>
     )

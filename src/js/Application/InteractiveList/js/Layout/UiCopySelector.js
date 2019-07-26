@@ -15,6 +15,8 @@ class CategoryCopy extends Component {
                 <img src={"https://gdn-cdn.s3.amazonaws.com/embed/2019/06/westpac-scholars/assets/images/"+Category.Meta2} alt={Category.Category} className="CategoryIcon" />
                 <h2>{Category.Category}</h2>
                 <p>{Category.Meta1}</p>
+
+                <h3>Tap to explore</h3>
             </div>
         )
     }
@@ -27,6 +29,7 @@ class HomeUICopy extends Component {
             <div className="ApplicationCopy">
                 <h1>{Category.Header}</h1>
                 <h2>{Category.SubHeader}</h2>
+                <h3>Tap to explore</h3>
             </div>
         )
     }

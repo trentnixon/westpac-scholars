@@ -23,20 +23,16 @@ class Selectedcategories extends Component {
         GA('Application Click','Button > Category Change', label)
     }
   render () {
-    DisplayCats = this.getKeyByValue(this.props.CATS,"1");
+    console.log(this.props.Parent[this.props.int-1], this.props.int)
+
+    DisplayCats = this.getKeyByValue(this.props.Parent[this.props.int-1],"1");
     return (
         <ul className="SelectedCategoryList"> 
             {
                 DisplayCats.map((label,i)=>{
                     return(
                         <li key={i} className={label}>  
-                            <ButtonBase 
-                                focusRipple 
-                                className="SelectedListIcon" 
-                                onClick={()=>{this.handle(label)}}
-                             >
-                                {label} 
-                            </ButtonBase>
+                            <p>{label}</p>
                         </li>
                     )
                 })

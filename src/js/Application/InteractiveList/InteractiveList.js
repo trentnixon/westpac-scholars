@@ -20,7 +20,7 @@ export default  class Default extends Component {
       <div id={UiState} className={"InteractiveList Child_"+ this.props.APP.INT}>
         <div className="Top">
 
-            <CopySelector 
+            <CopySelector   
               UiState={UiState}
               Int={this.props.APP.INT} 
               {... this.props} 
@@ -31,7 +31,7 @@ export default  class Default extends Component {
               List={this.props.APP.APPLICATION[0]}
               Parent={this.props.APP.APPLICATION[1]}
             />
-             
+              
         </div>
 
         <div className="Bottom" id="Bottom">  

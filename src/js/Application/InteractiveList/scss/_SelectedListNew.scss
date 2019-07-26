@@ -1,0 +1,168 @@
+#SelectedListNew{
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+
+    //border:1px solid black;
+
+
+    .animated{
+        margin: 5px .5% 10px;
+        //border:1px solid black;
+        flex-basis: 24%;
+   
+        .SelectedListItem{
+
+            .Picture{
+                height: 7rem;
+                width: auto;
+                border-radius: 7rem;
+                line-height: 7rem;
+                text-align: center;
+                position: relative;
+                background-size: contain;
+                background-position: center center;
+                background-repeat: no-repeat;
+                padding: 0;
+                margin: 0;
+                button{
+                    width: 100%;
+                    float: unset;
+                    float: none;
+                   
+                    
+                }
+                .SelectedListIcon{ 
+                
+       
+                    width: 100%;
+                    height: 100%;
+                    line-height: 1em;
+                    border-radius: $baseDimensions;
+                    position: relative;
+    
+                    
+                    .SelectedListTitle{
+                        @include BaseTransition();
+    
+                        font-size:.9em;
+                        color: white;
+                        opacity: 0;
+                       
+                        position: absolute;
+                        top: 0%;
+                        left:0%;
+                        background-color: rgba(0,0,0,.5);
+                        border-radius: 10px;
+                        padding: 44% 2%;
+                        font-size: .8em;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: $baseDimensions;
+                    }
+                }
+                .SelectedListIcon:hover .SelectedListTitle{
+                    //opacity: 1;
+                }
+            }
+
+           
+            .SelectedCategoryList{
+                display: flex;
+                flex-direction:row;
+                flex-wrap: nowrap;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                margin-top: -1.5rem;
+        
+                   li{
+                       
+                       text-align: left;
+                       padding: 0;
+                       margin: 0% .5%;
+                       padding: 5%;
+                       border-radius: 100px;
+                       width: 35px;
+                       height: 35px;
+                       background-size: 20px;
+                       background-position: center center;
+                       background-repeat: no-repeat;
+                       text-indent: -10000px;
+                       overflow: hidden;
+                     
+                       z-index: 100;
+                   
+                       -webkit-box-shadow: 0px 1px 2px 0px rgba(20,20,20,.4);
+                       -moz-box-shadow: 0px 1px 2px 0px rgba(20,20,20,.4);
+                       box-shadow: 0px 1px 2px 0px rgba(20,20,20,.4);
+                   }
+                   
+                   .Tech{      @include ParentIcons($Path,"cog.svg", $TechColor) }
+                   .Biology{   @include ParentIcons($Path,"Heart.svg", $BiologyColor)}
+                   .Economics{   @include ParentIcons($Path,"Dollar.svg", $EconomicColor)}
+                   .Environment{  @include ParentIcons($Path,"Leaf.svg", $EnviromentColor)}
+                   .Culture{     @include ParentIcons($Path,"HandShake.svg", $CultuerColor)}
+                   .Health{      @include ParentIcons($Path,"molecule.svg", $HealthColor)}
+           }
+            .Tagline{
+                font-size: 0.75rem;
+                font-weight: 400;
+                line-height: 1.1rem;
+                text-align: center;
+                margin: 7% 0% 0;
+                color: #f1f1f1;
+            }
+        }
+    }
+
+
+    @media only screen  and  (min-width : 1200px) {
+
+    }     
+    @media only screen  and (min-width : 768px) and (max-width : 1024px) {
+        .animated{
+            margin:5px ;
+            
+        .SelectedListItem{
+            
+            //height: $MobileDimensions ;
+            //width: $MobileDimensions ;
+            }
+        }
+    } 
+    @media only screen  and (min-width : 768px) and (max-width : 990px) { 
+        
+    }     
+    @media only screen and (min-width : 576px) and (max-width : 785px) { 
+        .animated{ flex-basis: 23%;} 
+    }
+    @media only screen and (min-width : 576px) and (max-width : 768px) {  
+    }
+    @media only screen and (min-width : 480px) and (max-width : 576px) {  
+    }
+    
+    @media only screen and (min-width : 320px) and (max-width : 480px) { 
+       
+
+    }
+
+    @media only screen and (max-width : 576px) { 
+        
+           // justify-content: space-around;
+
+            .animated{
+                flex-basis: 32%;
+                .SelectedListItem{
+                    //height: $MobileDimensions ;
+                    //width: $MobileDimensions ;
+                }
+            }
+            
+        
+    }
+}

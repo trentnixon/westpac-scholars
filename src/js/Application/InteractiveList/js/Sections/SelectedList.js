@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import SelectedList from "../Elements/SelectedList";
+import SelectedList from "../Elements/SelectedListNew";
+//import SelectedList from "../Elements/SelectedList";
 import BackButton from "../Elements/BackButton";
 
-export default  class Default extends Component {
+export default  class  Default extends Component {
   componentWillMount(){ }
   render() {
   

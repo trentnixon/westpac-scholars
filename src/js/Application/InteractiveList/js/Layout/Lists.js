@@ -19,7 +19,7 @@ export default  class Default extends Component {
               INT={this.props.APP.INT}
               APP={this.props.APP}
               Parent={this.props.Parent}  
-          />
+          /> 
         )
       }
   }

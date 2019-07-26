@@ -28,6 +28,7 @@ export default  class Default extends Component {
                     </div>
 
                     <div className="Right"> 
+                        <h1 className="Tagline">{Item.Tagline}</h1>
                         <p>{Item.Copy}</p>
                         
                         <SupportingImage Image={Item.SupportingImage}/>

@@ -5,7 +5,7 @@ import {ResetParent, RestItem} from "../../actions/actions";
 import {GA} from "../../../../../actions/ga";
 
 function ToTop(){
-    let List = document.getElementById("SelectedList");
+    let List = document.getElementById("SelectedListNew");
     let offset=150;
 
     window.scrollTo({ top:  (List.offsetTop-offset),behavior: 'smooth'});

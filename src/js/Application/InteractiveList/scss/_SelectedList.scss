@@ -1,7 +1,5 @@
-
-
 #SelectedList{ 
-    flex-grow: 1;
+    flex-grow: 1; 
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -14,6 +12,7 @@
             
         .SelectedListItem{
 
+            
             height: $baseDimensions;
             width: $baseDimensions;
      
@@ -25,7 +24,7 @@
     
             
 
-            .SelectedListIcon{
+            .SelectedListIcon{ 
                 
        
                 width: 100%;
@@ -58,13 +57,12 @@
 
             .SelectedListIcon:hover .SelectedListTitle{
                 opacity: 1;
-               
             }
-            
-           
         }
     }
     
+  
+
     @media only screen  and  (min-width : 1200px) {
 
     }     
